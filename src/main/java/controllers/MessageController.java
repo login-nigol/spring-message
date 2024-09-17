@@ -19,7 +19,7 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @PostMapping
+    @PostMapping("/send")
     public ResponseEntity<Message> sendMessage(@RequestParam String toEmail, @RequestParam String text, Principal principal) {
         String fromEmail = principal.getName();  // Получение email текущего пользователя
         Message message = messageService.sendMessage(fromEmail, toEmail, text);
